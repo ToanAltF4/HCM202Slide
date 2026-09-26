@@ -43,7 +43,7 @@ Mỗi slide có URL riêng (`/#16` là slide quiz), nên có thể mở thẳng 
 | Toàn | Phần IV: Nghiêm minh, vụ án Trần Dụ Châu, nêu gương, kết luận (GT tr. 89–90) | 25–33 | 7–8 phút |
 
 ## Deploy
-Đã có sẵn `vercel.json` và `public/_redirects` để đường dẫn `/question` hoạt động trên Vercel và Netlify. Sau khi có tên miền, sửa `og:image` trong `index.html` thành đường dẫn đầy đủ, ví dụ `https://ten-mien/og-image.jpg`, để ảnh xem trước hiện ra khi gửi link.
+Đã có sẵn `vercel.json` và `public/_redirects` để đường dẫn `/question` hoạt động trên Vercel và Netlify. Web đang chạy tại **https://fptu.tokyo** (Vercel project `hcm202slide99`, nối với repo `ToanAltF4/hcm202slide99`). Ảnh xem trước khi gửi link: `https://fptu.tokyo/og-image.jpg`.
 
 ## Nguồn & AI
 - Mọi hình ảnh là **ảnh tư liệu có nguồn** (TTXVN, Nhân Dân, QĐND, Báo Chính phủ, VnExpress, VietnamPlus, Thanh Niên…). Không có ảnh do AI tạo. Danh sách đầy đủ nằm ở slide “Tài liệu tham khảo & nguồn ảnh”.
