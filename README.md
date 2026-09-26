@@ -16,6 +16,8 @@ Font được đóng gói sẵn, nên khi trình chiếu trên lớp **không c�
 `→` / `Space` chuyển slide tiếp · `←` quay lại · `G` xem tổng quan · `N` mở lời thoại · `F` toàn màn hình · con lăn chuột, vuốt màn hình · rê chuột lên các vạch ở thanh dưới để xem tên slide.
 Mỗi slide có URL riêng (`/#16` là slide quiz), nên có thể mở thẳng đến slide cần trình bày.
 
+**Trang câu hỏi cá nhân:** `/question` (ví dụ http://localhost:4173/question), hoặc bấm nút “Câu hỏi cá nhân” ở slide bìa. Người xem chọn 1 trong 30 câu hoặc lật thẻ để lấy câu ngẫu nhiên. Web **chỉ hiện câu hỏi**; đáp án nằm trong `docs/Cau-hoi-va-dap-an-Nhom6.docx`.
+
 ## Cấu trúc
 | File | Nội dung |
 |---|---|
@@ -28,6 +30,8 @@ Mỗi slide có URL riêng (`/#16` là slide quiz), nên có thể mở thẳng 
 | `src/components/` | Deck (trình chiếu), Pager (phân trang), Scene3D (ngôi sao 3D), Gallery3D, Quiz |
 | `docs/TOM-TAT-GIAO-TRINH.md` | Tóm tắt giáo trình tr. 80 – 90, định vị Chương IV |
 | `docs/Kich-ban-thuyet-trinh-Nhom6.docx` (và `.txt`) | Script nói cho 4 bạn, ghi rõ từng slide |
+| `docs/Cau-hoi-va-dap-an-Nhom6.docx` | 30 câu hỏi và đáp án (mỗi câu đọc 1–2 phút), có người trả lời gợi ý |
+| `docs/cau-hoi-dap-an.json` | Nguồn câu hỏi và đáp án (web chỉ nhận `src/data/questions.json`, không có đáp án) |
 | `src/data/script.json` | Nguồn của script, cũng là lời thoại hiện khi bấm phím `N` |
 
 ## Phân công
@@ -37,6 +41,9 @@ Mỗi slide có URL riêng (`/#16` là slide quiz), nên có thể mở thẳng 
 | Hoài Anh | Phần II: Hỏi nhanh & tình huống (tương tác) | 15–17 | 6–7 phút |
 | Long | Phần III: Kiểm soát quyền lực, kỷ cương, đạo đức công vụ (GT tr. 86–89) | 18–24 | 8–9 phút |
 | Toàn | Phần IV: Nghiêm minh, vụ án Trần Dụ Châu, nêu gương, kết luận (GT tr. 89–90) | 25–33 | 7–8 phút |
+
+## Deploy
+Đã có sẵn `vercel.json` và `public/_redirects` để đường dẫn `/question` hoạt động trên Vercel và Netlify. Sau khi có tên miền, sửa `og:image` trong `index.html` thành đường dẫn đầy đủ, ví dụ `https://ten-mien/og-image.jpg`, để ảnh xem trước hiện ra khi gửi link.
 
 ## Nguồn & AI
 - Mọi hình ảnh là **ảnh tư liệu có nguồn** (TTXVN, Nhân Dân, QĐND, Báo Chính phủ, VnExpress, VietnamPlus, Thanh Niên…). Không có ảnh do AI tạo. Danh sách đầy đủ nằm ở slide “Tài liệu tham khảo & nguồn ảnh”.

@@ -135,8 +135,17 @@ const base = [
             {COURSE.group}
           </span>
         </Item>
+        <Item className="cover__actions">
+          <a className="cover__qa" href="/question">
+            <span className="cover__qa-icon">?</span>
+            <span>
+              <b>Câu hỏi cá nhân</b>
+              <small>30 câu hỏi · chọn hoặc lật ngẫu nhiên để hỏi Nhóm 6</small>
+            </span>
+          </a>
+        </Item>
         <Item className="cover__hint">
-          <kbd>←</kbd> <kbd>→</kbd> chuyển slide · <kbd>G</kbd> tổng quan · <kbd>F</kbd> toàn màn hình
+          <kbd>←</kbd> <kbd>→</kbd> chuyển slide · <kbd>G</kbd> tổng quan · <kbd>N</kbd> lời thoại · <kbd>F</kbd> toàn màn hình
         </Item>
       </motion.div>
     ),

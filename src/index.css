@@ -151,10 +151,11 @@ button {
 }
 .title {
   margin: 0;
+  padding: 0.1em 0 0.16em;
   font-family: var(--serif);
   font-weight: 700;
   font-size: clamp(28px, 4.2vw, 58px);
-  line-height: 1.08;
+  line-height: 1.16;
   letter-spacing: -0.01em;
   text-wrap: balance;
   background: linear-gradient(180deg, #fff6e2 30%, #f2c98a);
@@ -214,9 +215,11 @@ button {
 }
 .cover__title {
   margin: 0;
+  /* chừa chỗ cho dấu tiếng Việt: chữ gradient chỉ được vẽ trong khung phần tử */
+  padding: 0.14em 0.04em 0.2em 0;
   font-family: var(--serif);
   font-size: clamp(44px, 8vw, 118px);
-  line-height: 0.98;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   background: linear-gradient(175deg, #fff8e7 20%, #f2c14e 70%, #d98b2b);
   -webkit-background-clip: text;
@@ -301,7 +304,7 @@ kbd {
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(30px, 4.8vw, 68px);
-  line-height: 1.08;
+  line-height: 1.16;
   text-wrap: balance;
   text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
 }
@@ -348,7 +351,7 @@ kbd {
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(32px, 5vw, 72px);
-  line-height: 1.1;
+  line-height: 1.18;
   text-wrap: balance;
   text-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
 }
@@ -1856,4 +1859,263 @@ kbd {
   font-size: 15.5px;
   line-height: 1.65;
   color: var(--cream);
+}
+
+/* ---------- Nút câu hỏi trên bìa ---------- */
+.cover__actions {
+  margin-top: 8px;
+}
+.cover__qa {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 22px 12px 12px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--cream);
+  background: linear-gradient(135deg, rgba(242, 193, 78, 0.22), rgba(200, 16, 46, 0.28));
+  border: 1px solid var(--gold);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(242, 193, 78, 0.08);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.cover__qa:hover {
+  transform: translateY(-3px) rotateX(8deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 0 6px rgba(242, 193, 78, 0.14);
+}
+.cover__qa-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  color: var(--bg-0);
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 700;
+}
+.cover__qa b {
+  display: block;
+  font-size: 17px;
+}
+.cover__qa small {
+  font-size: 12.5px;
+  color: var(--cream-2);
+}
+
+/* ---------- Trang câu hỏi ---------- */
+.qpage {
+  position: fixed;
+  inset: 0;
+}
+.qpage__scroll {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  padding: 36px var(--pad-x) 60px;
+}
+.qpage__head,
+.qrandom,
+.qlist {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.qpage__head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.qpage__back {
+  align-self: flex-start;
+  display: inline-flex;
+  gap: 6px;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+.qrandom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.qflip {
+  width: min(640px, 100%);
+  height: 240px;
+  perspective: 1400px;
+  cursor: pointer;
+}
+.qflip__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+.qflip__face {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px;
+  text-align: center;
+  border: 1px solid var(--gold);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+.qflip__front {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(242, 193, 78, 0.25), transparent 60%),
+    linear-gradient(160deg, #6b0f14, #2a0707);
+}
+.qflip__mark {
+  font-family: var(--serif);
+  font-size: 72px;
+  line-height: 1;
+  color: var(--gold);
+  text-shadow: 0 0 30px rgba(242, 193, 78, 0.5);
+}
+.qflip__front b {
+  font-size: 20px;
+}
+.qflip__front small {
+  color: var(--cream-3);
+}
+.qflip__back {
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg, #fff3d6, #f2c14e);
+  color: var(--bg-0);
+}
+.qflip__back p,
+.qmodal__card p {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 30px);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.qflip__no {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.qrandom__btn {
+  display: inline-flex;
+  gap: 8px;
+  padding: 0 18px;
+}
+.qlist__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.qlist__head h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 26px;
+}
+.qlist__head span {
+  color: var(--cream-3);
+  font-size: 14px;
+}
+.qlist__reset {
+  margin-left: 10px;
+  border: 0;
+  background: none;
+  color: var(--gold);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.qgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  perspective: 1000px;
+}
+.qcard {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition:
+    border-color 0.25s,
+    opacity 0.25s;
+}
+.qcard:hover {
+  border-color: var(--gold);
+}
+.qcard__no {
+  flex: none;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 32px;
+}
+.qcard__q {
+  font-size: 15px;
+  line-height: 1.45;
+}
+.qcard.is-asked {
+  opacity: 0.5;
+}
+.qcard.is-asked .qcard__no::after {
+  content: ' ✓';
+  font-size: 14px;
+  color: var(--right);
+}
+.qmodal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(10, 2, 2, 0.82);
+  backdrop-filter: blur(8px);
+  perspective: 1400px;
+}
+.qmodal__card {
+  position: relative;
+  width: min(820px, 100%);
+  min-height: 280px;
+  padding: 48px 44px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  background: linear-gradient(160deg, #fff3d6, #f2c14e);
+  color: var(--bg-0);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+.qmodal__card p {
+  font-size: clamp(24px, 3.2vw, 40px);
+}
+.qmodal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  color: var(--bg-0);
+  border-color: rgba(0, 0, 0, 0.2);
 }
